@@ -4,6 +4,7 @@
  * License: MIT
  */
 /* global angular */
+var $ = require('jquery');
 (function () {
     'use strict';
 
@@ -87,3 +88,5 @@
     angular.module('angular-blocks', [])
         .directive('extendTemplate', ['$templateCache', '$compile', '$http', '$q', '$log', '$timeout', extendTemplate]);
 }());
+
+module.exports='angular-blocks';
