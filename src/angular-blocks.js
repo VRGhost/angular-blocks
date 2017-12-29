@@ -1,5 +1,4 @@
 /* global angular */
-var $ = require('jquery');
 (function () {
     'use strict';
 
@@ -17,6 +16,7 @@ var $ = require('jquery');
                 }
 
                 // Clone and then clear the template element to prevent expressions from being evaluated
+                tElement = jQuery(tElement);
                 var $clone = tElement.clone();
                 tElement.html('');
 

@@ -69,6 +69,8 @@ describe('angular-blocks directives', function () {
             $scope.$digest();
             $httpBackend.flush();
 
+            element = jQuery(element);
+
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:sub-header</p>');
             expect(element.find('[data-block="content"]').text().trim()).toBe('1');
             expect(element.find('[data-block="footer"]').html().trim()).toBe('<p>:footer</p>');
@@ -90,6 +92,8 @@ describe('angular-blocks directives', function () {
             $scope.$digest();
             $httpBackend.flush();
 
+            element = jQuery(element);
+
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:header</p>');
             expect(element.find('[data-block="content"]').html().trim()).toBe('<p class="ng-binding">Bar</p>');
             expect(element.find('[data-block="footer"]').html().trim()).toBe('<p>:footer</p>');
@@ -109,6 +113,8 @@ describe('angular-blocks directives', function () {
             $scope.$digest();
             $httpBackend.flush();
 
+            element = jQuery(element);
+
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:sub-header</p>');
             expect(element.find('[data-block="content"]').html().trim()).toBe('<p class="ng-binding">Bar</p>');
             expect(element.find('[data-block="footer"]').html().trim()).toBe('<p>:footer</p>');
@@ -127,6 +133,8 @@ describe('angular-blocks directives', function () {
             element = $compile(element)($scope);
             $scope.$digest();
             $httpBackend.flush();
+
+            element = jQuery(element);
 
             expect($log.warn.logs[0][0]).toEqual('Failed to find data-block=foo in /main-layout.html');
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:header</p>');
@@ -148,6 +156,8 @@ describe('angular-blocks directives', function () {
             $scope.$digest();
             $httpBackend.flush();
 
+            element = jQuery(element);
+
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:header</p>');
             expect(element.find('[data-block="content"]').html().trim()).toBe('<div data-block-prepend="content"><p class="ng-binding">Bar</p></div><p>:content</p>');
             expect(element.find('[data-block="footer"]').html().trim()).toBe('<p>:footer</p>');
@@ -165,6 +175,8 @@ describe('angular-blocks directives', function () {
             $scope.$digest();
             $httpBackend.flush();
 
+            element = jQuery(element);
+
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:sub-header</p>');
             expect(element.find('[data-block="content"]').html().trim()).toBe('<div data-block-prepend="content"><p class="ng-binding">Bar</p></div><p>:content</p>');
             expect(element.find('[data-block="footer"]').html().trim()).toBe('<p>:footer</p>');
@@ -181,6 +193,8 @@ describe('angular-blocks directives', function () {
             element = $compile(element)($scope);
             $scope.$digest();
             $httpBackend.flush();
+
+            element = jQuery(element);
 
             expect($log.warn.logs[0][0]).toEqual('Failed to find data-block=foo in /main-layout.html');
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:header</p>');
@@ -202,6 +216,8 @@ describe('angular-blocks directives', function () {
             $scope.$digest();
             $httpBackend.flush();
 
+            element = jQuery(element);
+
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:header</p>');
             expect(element.find('[data-block="content"]').html().trim()).toBe('<p>:content</p><div data-block-append="content"><p class="ng-binding">Bar</p></div>');
             expect(element.find('[data-block="footer"]').html().trim()).toBe('<p>:footer</p>');
@@ -219,6 +235,8 @@ describe('angular-blocks directives', function () {
             $scope.$digest();
             $httpBackend.flush();
 
+            element = jQuery(element);
+
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:sub-header</p>');
             expect(element.find('[data-block="content"]').html().trim()).toBe('<p>:content</p><div data-block-append="content"><p class="ng-binding">Bar</p></div>');
             expect(element.find('[data-block="footer"]').html().trim()).toBe('<p>:footer</p>');
@@ -235,6 +253,8 @@ describe('angular-blocks directives', function () {
             element = $compile(element)($scope);
             $scope.$digest();
             $httpBackend.flush();
+
+            element = jQuery(element);
 
             expect($log.warn.logs[0][0]).toEqual('Failed to find data-block=foo in /main-layout.html');
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:header</p>');
@@ -257,6 +277,8 @@ describe('angular-blocks directives', function () {
             $scope.$digest();
             $httpBackend.flush();
 
+            element = jQuery(element);
+
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:header</p>');
             expect(element.find('[data-block="content"]').prev().html().trim()).toBe('<p class="ng-binding">Bar</p>');
             expect(element.find('[data-block="content"]').html().trim()).toBe('<p>:content</p>');
@@ -275,6 +297,8 @@ describe('angular-blocks directives', function () {
             $scope.$digest();
             $httpBackend.flush();
 
+            element = jQuery(element);
+
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:sub-header</p>');
             expect(element.find('[data-block="content"]').prev().html().trim()).toBe('<p class="ng-binding">Bar</p>');
             expect(element.find('[data-block="content"]').html().trim()).toBe('<p>:content</p>');
@@ -292,6 +316,8 @@ describe('angular-blocks directives', function () {
             element = $compile(element)($scope);
             $scope.$digest();
             $httpBackend.flush();
+
+            element = jQuery(element);
 
             expect($log.warn.logs[0][0]).toEqual('Failed to find data-block=foo in /main-layout.html');
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:header</p>');
@@ -313,6 +339,8 @@ describe('angular-blocks directives', function () {
             $scope.$digest();
             $httpBackend.flush();
 
+            element = jQuery(element);
+
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:header</p>');
             expect(element.find('[data-block="content"]').html().trim()).toBe('<p>:content</p>');
             expect(element.find('[data-block="content"]').next().html().trim()).toBe('<p class="ng-binding">Bar</p>');
@@ -331,6 +359,8 @@ describe('angular-blocks directives', function () {
             $scope.$digest();
             $httpBackend.flush();
 
+            element = jQuery(element);
+
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:sub-header</p>');
             expect(element.find('[data-block="content"]').html().trim()).toBe('<p>:content</p>');
             expect(element.find('[data-block="content"]').next().html().trim()).toBe('<p class="ng-binding">Bar</p>');
@@ -348,6 +378,8 @@ describe('angular-blocks directives', function () {
             element = $compile(element)($scope);
             $scope.$digest();
             $httpBackend.flush();
+
+            element = jQuery(element);
 
             expect($log.warn.logs[0][0]).toEqual('Failed to find data-block=foo in /main-layout.html');
             expect(element.find('[data-block="header"]').html().trim()).toBe('<p class="ng-binding">:header</p>');
