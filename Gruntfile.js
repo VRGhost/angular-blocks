@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
     'use strict';
 
-    grunt.loadNpmTasks('grunt-publish');
+    grunt.loadNpmTasks('grunt-release');
 
     // Project configuration.
     grunt.initConfig({
