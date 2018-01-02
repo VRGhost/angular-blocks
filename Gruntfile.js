@@ -21,8 +21,7 @@ module.exports = function (grunt) {
             verify: [],
             install: [],
             deploy: [
-                'bump:patch',
-
+                'release'
             ],
         },
         jshint: {
@@ -97,14 +96,12 @@ module.exports = function (grunt) {
                 command: 'git flow release finish <%= pkg.version %>'
             }
         },
-        publish: {
-            main: {
-                options: {
-                    ignore: ['node_modules']
-                },
-                src: [
-                    'dist/angular-blocks.js'
-                ]
+        release: {
+            options: {
+                bump: true,
+                tag: true,
+                commit: false,
+                tag: true
             }
         }
     });
