@@ -100,8 +100,7 @@ module.exports = function (grunt) {
             options: {
                 bump: true,
                 tag: true,
-                commit: false,
-                tag: true
+                commit: false
             }
         }
     });
