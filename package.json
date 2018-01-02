@@ -3,6 +3,7 @@
   "description": "Template inheritance for Angular JS",
   "version": "0.1.10",
   "private": false,
+  "license": "MIT",
   "homepage": "https://github.com/wmluke/angular-blocks",
   "author": {
     "name": "William L. Bunselmeyer",
@@ -33,7 +34,7 @@
     "chai": "~3.5.0",
     "coveralls": "~2.11.8",
     "grunt": "https://registry.npmjs.org/grunt/-/grunt-0.4.5.tgz",
-    "grunt-build-lifecycle": "~0.1.1",
+    "grunt-build-lifecycle": "https://registry.npmjs.org/grunt-build-lifecycle/-/grunt-build-lifecycle-0.1.1.tgz",
     "grunt-bumpup": "~0.6.3",
     "grunt-contrib-concat": "~1.0.0",
     "grunt-contrib-jshint": "~1.0.0",
