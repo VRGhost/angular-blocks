@@ -19,7 +19,9 @@ module.exports = function (grunt) {
             'integration-test': [],
             verify: [],
             install: [],
-            deploy: []
+            deploy: [
+                'bump',
+            ]
         },
         jshint: {
             src: {
@@ -99,7 +101,7 @@ module.exports = function (grunt) {
                 tasks: ['concat', 'uglify']
             }
         },
-        bumpup: ['package.json', 'bower.json'],
+        bumpup: ['package.json'],
         exec: {
             release_start: {
                 command: 'git flow release start <%= pkg.version %>'
