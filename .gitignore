@@ -3,3 +3,5 @@ coverage
 node_modules
 reports
 bower_components
+/dist
+*.tgz
