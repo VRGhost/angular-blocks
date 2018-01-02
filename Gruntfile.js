@@ -1,6 +1,8 @@
 module.exports = function (grunt) {
     'use strict';
 
+    grunt.loadNpmTasks('grunt-publish');
+
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -97,7 +99,11 @@ module.exports = function (grunt) {
         },
         publish: {
             main: {
+                options: {
+                    ignore: ['node_modules']
+                },
                 src: [
+                    'dist/angular-blocks.js'
                 ]
             }
         }
