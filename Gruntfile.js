@@ -13,15 +13,15 @@ module.exports = function (grunt) {
                 'karma:phantom'
             ],
             'package': [
-                'concat',
-                'uglify'
+                'concat'
             ],
             'integration-test': [],
             verify: [],
             install: [],
             deploy: [
-                'bump',
-            ]
+                'bump:patch',
+
+            ],
         },
         jshint: {
             src: {
@@ -80,21 +80,6 @@ module.exports = function (grunt) {
                 dest: 'dist/<%= pkg.name %>.js'
             }
         },
-
-        uglify: {
-            options: {
-                banner: ['/**! ',
-                    ' * <%= pkg.name %> v<%= pkg.version %>',
-                    ' * Copyright (c) 2013 <%= pkg.author.name %>. <%= pkg.homepage %>',
-                    ' * License: MIT',
-                    ' */\n'].join('\n')
-            },
-            dist: {
-                files: {
-                    'dist/<%= pkg.name %>.min.js': ['<%= concat.scripts.dest %>']
-                }
-            }
-        },
         regarde: {
             scripts: {
                 files: ['src/**/*.js'],
@@ -108,6 +93,12 @@ module.exports = function (grunt) {
             },
             release_finish: {
                 command: 'git flow release finish <%= pkg.version %>'
+            }
+        },
+        publish: {
+            main: {
+                src: [
+                ]
             }
         }
     });
