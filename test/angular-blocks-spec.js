@@ -1,7 +1,7 @@
 describe('angular-blocks directives', function () {
     'use strict';
 
-    var $httpBackend, $scope;
+    var $httpBackend, $scope, $timeout;
 
     beforeEach(function () {
         var mainLayout = [
@@ -27,16 +27,19 @@ describe('angular-blocks directives', function () {
             $httpBackend.when('GET', '/main-layout.html').respond(mainLayout.join('/n'));
             $httpBackend.when('GET', '/sub-layout.html').respond(subLayout.join('/n'));
             $httpBackend.when('GET', '/foo.html').respond(404);
+
+            $timeout = $injector.get('$timeout');
         });
     });
 
     afterEach(function () {
         $httpBackend.verifyNoOutstandingExpectation();
         $httpBackend.verifyNoOutstandingRequest();
+        $timeout.verifyNoPendingTasks();
     });
 
     describe('data-extend-template directive', function () {
-        it('should throw an exception if the template fails to load', inject(function ($compile, $log) {
+        it('should throw an exception if the template fails to load', inject(function ($compile, $log, $timeout) {
             var html = [
                 '<div data-extend-template="/foo.html">',
                 '</div>'
@@ -44,11 +47,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             $compile(element)($scope);
-            $scope.$digest();
-
-            expect($log.assertEmpty());
-
             $httpBackend.flush();
+            $timeout.flush();
 
             expect($log.error.logs[0][0]).toEqual('Failed to load template: /foo.html');
         }));
@@ -66,8 +66,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -89,8 +89,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -110,8 +110,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -131,8 +131,9 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
+
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -153,8 +154,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -172,8 +173,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -191,8 +192,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -213,8 +214,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -232,8 +233,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -251,8 +252,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -274,8 +275,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -294,8 +295,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -314,8 +315,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -336,8 +337,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -356,8 +357,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 
@@ -376,8 +377,8 @@ describe('angular-blocks directives', function () {
 
             var element = angular.element(html.join('\n'));
             element = $compile(element)($scope);
-            $scope.$digest();
             $httpBackend.flush();
+            $timeout.flush();
 
             element = jQuery(element);
 

@@ -62,12 +62,12 @@
                     }, function () {
                         var msg = 'Failed to load template: ' + src;
                         $log.error(msg);
-                        return $q.reject(msg);
+                        return $('<div class="error">Angular-blocks failed to load the template file</div>');
                     });
 
 
                 return function ($scope, $element) {
-                    loadTemplate.then(function ($template) {
+                    return loadTemplate.then(function ($template) {
                         $scope.$broadcast('$blocksExtendTemplateLinkStart', src);
                         $element.html($template.html());
                         $compile($element.contents())($scope);
@@ -84,4 +84,4 @@
         .directive('extendTemplate', ['$templateCache', '$compile', '$http', '$q', '$log', '$timeout', extendTemplate]);
 }());
 
-module.exports = 'angular-blocks';
+//module.exports = 'angular-blocks';
