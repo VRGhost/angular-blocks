@@ -2,3 +2,7 @@
 /test
 Makefile
 *.tgz
+/node_modules
+/src
+Guntfile.js
+karma.conf.js
